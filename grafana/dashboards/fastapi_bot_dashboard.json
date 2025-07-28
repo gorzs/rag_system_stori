@@ -1,0 +1,107 @@
+{
+  "title": "FastAPI Bot Monitoring Dashboard",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Total Requests",
+      "targets": [
+        {
+          "expr": "sum(http_requests_total)",
+          "legendFormat": "Total Requests",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Errors (4xx + 5xx)",
+      "targets": [
+        {
+          "expr": "sum by (status) (http_requests_total{status=~\"4..|5..\"})",
+          "legendFormat": "Error {{status}}",
+          "refId": "B"
+        }
+      ],
+      "gridPos": {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 4
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Latency by Endpoint",
+      "targets": [
+        {
+          "expr": "rate(http_request_duration_seconds_sum[1m]) / rate(http_request_duration_seconds_count[1m])",
+          "legendFormat": "{{handler}}",
+          "refId": "C"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 4,
+        "w": 12,
+        "h": 8
+      }
+    },
+    {
+      "type": "table",
+      "title": "Request Count by Handler and Method",
+      "targets": [
+        {
+          "expr": "sum by (handler, method) (http_requests_total)",
+          "refId": "D"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 12,
+        "h": 6
+      }
+    },
+    {
+      "type": "stat",
+      "title": "GC Collections (Gen 2)",
+      "targets": [
+        {
+          "expr": "python_gc_collections_total{generation='2'}",
+          "refId": "E"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 18,
+        "w": 6,
+        "h": 4
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Python Version",
+      "targets": [
+        {
+          "expr": "python_info",
+          "refId": "F"
+        }
+      ],
+      "gridPos": {
+        "x": 6,
+        "y": 18,
+        "w": 6,
+        "h": 4
+      }
+    }
+  ],
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "5s"
+}

@@ -1,0 +1,10 @@
+PyPDF2
+faiss-cpu
+sentence-transformers
+transformers
+accelerate
+prometheus_fastapi_instrumentator
+uvicorn
+fastapi
+email-validator
+python-dotenv

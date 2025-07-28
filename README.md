@@ -64,7 +64,7 @@ rag-chatbot/
 
 4. Access services:
    - Chatbot: http://localhost:5173
-   - Backend: http://localhost:8000
+   - Backend: http://localhost:8000/docs
    - Prometheus: http://localhost:9090
    - Grafana: http://localhost:3000 (user: admin, pass: admin)
 		-To load the custom dashboard:

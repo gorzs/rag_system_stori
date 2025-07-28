@@ -67,8 +67,8 @@ rag-chatbot/
    - Backend: http://localhost:8000/docs
    - Prometheus: http://localhost:9090
    - Grafana: http://localhost:3000 (user: admin, pass: admin)
-   	-To load the custom dashboard:
-     		- Go to the left sidebar menu > "Dashboards" > "Import"
+	-To load the custom dashboard:
+		- Go to the left sidebar menu > "Dashboards" > "Import"
 		- Click on "Upload JSON file".
 		- Select the file ./grafana/dashboards/fastapi_bot_dashboard.json.
 		- Link the data source (Prometheus) and click "Import".
